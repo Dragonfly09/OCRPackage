@@ -19,7 +19,7 @@ allprojects {
 ```
 #### Step 3.在Module的build.gradle中添加依赖：
 ```
-implementation 'com.github.Dragonfly09:OCRPackage:v1.0'
+implementation 'com.github.Dragonfly09:OCRPackage:v1.1'
 ```
 #### Step 4.在需要文字识别的地方初始化
 ```
