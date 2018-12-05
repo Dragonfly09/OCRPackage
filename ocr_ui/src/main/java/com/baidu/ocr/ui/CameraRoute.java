@@ -25,7 +25,6 @@ public class CameraRoute {
     private static final int REQUEST_CODE_GENERAL_BASIC = 100;
     private Activity activity = null;
     private Fragment fragment = null;
-    private CallBack callBack = null;
 
     public CameraRoute() {
     }
@@ -39,9 +38,8 @@ public class CameraRoute {
         activity.startActivityForResult(intent, REQUEST_CODE_GENERAL_BASIC);
     }
 
-    public void startActivity(@NonNull Fragment fragment, @NonNull CallBack callBack) {
+    public void startActivity(@NonNull Fragment fragment) {
         this.fragment = fragment;
-        this.callBack = callBack;
         Intent intent = new Intent(activity.getBaseContext(), CameraActivity.class);
         intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, FileUtil.getSaveFile(fragment.getActivity().getApplicationContext()).getAbsolutePath());
         intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,
@@ -88,9 +86,6 @@ public class CameraRoute {
     }
 
     private void releaseCall() {
-        if (callBack != null) {
-            callBack = null;
-        }
         if (activity != null) {
             activity = null;
         }
