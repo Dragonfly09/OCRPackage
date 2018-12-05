@@ -10,22 +10,15 @@ allprojects {
   }
  }
 ```
-#### Step 2.添加权限到你的 AndroidManifest.xml
-```
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-```
-#### Step 3.在Module的build.gradle中添加依赖：
+#### Step 2.在Module的build.gradle中添加依赖：
 ```
 implementation 'com.github.Dragonfly09:OCRPackage:v1.1'
 ```
-#### Step 4.在需要文字识别的地方初始化
+#### Step 3.在需要文字识别的地方初始化
 ```
 OCRPackage.getInstance(context).init(context, "您的应用AK", "您的应用SK");
 ```
-#### Step 5.使你的Activity实现CallBack接口，以便接收识别结果
+#### Step 4.使你的Activity实现CallBack接口，以便接收识别结果
 ```
 public class TestActivity extends AppCompatActivity implements CallBack {
     /**
@@ -47,7 +40,7 @@ public class TestActivity extends AppCompatActivity implements CallBack {
     }
 }
 ```
-#### Step 6.在你的Activity的onActivityResult方法中设置回调
+#### Step 5.在你的Activity的onActivityResult方法中设置回调
 ```
  @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
